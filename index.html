@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title> Happy Boyfriend's Day For Shimlamirch 🩵</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color-scheme: light;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background: #eaf7ff;
+
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+
+            padding: 50px 35px;
+
+            border-radius: 28px;
+
+            width: 80%;
+            max-width: 480px;
+
+            box-shadow: 0 12px 35px rgba(80, 160, 200, 0.15);
+        }
+
+        .heart {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #5aaed6;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #6d8795;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+     button {
+    background: #8ed0ef;
+    color: white;
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: transform 0.25s ease,
+                background 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #79c3e6;
+}
+.wrongButton:hover {
+    transform: translateX(-50%);
+}
+
+#answers {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 25px;
+}
+
+#answers button {
+    width: 220px;
+    min-height: 52px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+#muffinButton {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translate(-50%);
+
+    z-index: 10;
+}
+
+.wrongButton {
+    position: absolute;
+    z-index: 5;
+
+    transition:
+        left 0.4s ease;
+}
+/* Wrong answers start one below another */
+
+#answers .wrongButton:nth-of-type(2) {
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+}
+
+#answers .wrongButton:nth-of-type(3) {
+    left: 50%;
+    top: 150px;
+    transform: translateX(-50%);
+}
+
+#answers .wrongButton:nth-of-type(4) {
+    left: 50%;
+    top: 220px;
+    transform: translateX(-50%);
+}
+#message {
+    color: #6d8795;
+    font-size: 14px;
+    min-height: 25px;
+    margin-top: 10px;
+}  
+ .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(80, 160, 200, 0.15);
+}
+
+.gallery img:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.gallery img:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+h2 {
+    color: #5aaed6;
+    font-size: 21px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+video {
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 5px;
+    box-shadow: 0 8px 25px rgba(80, 160, 200, 0.18);
+}
+
+.container > p {
+    color: #6d8795;
+    font-size: 17px;
+    margin-top: 25px;
+}
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="heart">
+            🩵
+        </div>
+
+        <h1>
+            For Shimlamirch
+        </h1>
+
+        <div class="subtitle">
+
+            A little something<br>
+            from your Muffin 🧁
+
+        </div>
+
+        <button id="enterButton">
+            
+            enter →
+        </button>
+
+        <div class="small">
+
+            made with a suspicious amount of love
+
+        </div>
+
+    </div>
+<script>
+
+    const enterButton = document.getElementById("enterButton");
+
+    enterButton.addEventListener("click", function() {
+
+        document.body.innerHTML = `
+
+            <div class="container">
+
+                <div class="heart">
+                    🩵
+                </div>
+
+                <h1>
+                    One very important question...
+                </h1>
+
+                <div class="subtitle">
+                    Who does Shimlamirch love the most? 👀
+                </div>
+
+                <div id="answers">
+
+    <button id="muffinButton">
+        🧁 Muffin
+    </button>
+
+    <button class="wrongButton">
+        🏏 Virat Kohli
+    </button>
+
+    <button class="wrongButton">
+        ⚽ Cristiano Ronaldo
+    </button>
+
+    <button class="wrongButton">
+        🥘 Chole Bhature
+    </button>
+
+</div>
+
+                </div>
+
+                <p id="message"></p>
+
+            </div>
+
+        `;
+
+
+        const muffinButton =
+            document.getElementById("muffinButton");
+
+        const wrongButtons =
+            document.querySelectorAll(".wrongButton");
+
+        const message =
+            document.getElementById("message");
+
+
+        // 🧁 Correct answer
+
+        muffinButton.addEventListener("click", function() {
+
+            muffinButton.style.background = "#72c7a0";
+
+            muffinButton.innerHTML =
+                "🧁 Muffin ✓";
+
+            message.innerHTML =
+                "Good boy. 😌🩵";
+
+            setTimeout(function() {
+
+                document.body.innerHTML = `
+
+                    <div class="container">
+
+                        <div class="heart">
+                            💙
+                        </div>
+
+                        <h1>
+                            Correct. Obviously.
+                        </h1>
+
+                        <div class="subtitle">
+
+                            You may continue, Shimlamirch. 😌
+
+                        </div>
+
+                        <button id="continueButton">
+                            continue →
+                        </button>
+
+                    </div>
+
+                `;
+
+                document
+                    .getElementById("continueButton")
+                    .addEventListener("click", nextScreen);
+
+            }, 1400);
+
+        });
+
+
+        // 😂 Wrong answers run away
+
+       // 😂 Wrong answers escape smoothly
+
+const answers = document.getElementById("answers");
+
+let lastEscapeTime = 0;
+
+answers.addEventListener("pointermove", function(event) {
+
+    const now = Date.now();
+
+    if (now - lastEscapeTime < 350) {
+        return;
+    }
+
+    wrongButtons.forEach(function(button) {
+
+        const rect = button.getBoundingClientRect();
+
+        const buttonCenterX =
+            rect.left + rect.width / 2;
+
+        const buttonCenterY =
+            rect.top + rect.height / 2;
+
+        const distance = Math.sqrt(
+            Math.pow(event.clientX - buttonCenterX, 2) +
+            Math.pow(event.clientY - buttonCenterY, 2)
+        );
+
+        if (distance < 70) {
+            runAway(button);
+            lastEscapeTime = now;
+        }
+
+    });
+
+});
+
+// Make wrong buttons escape on touch too
+
+wrongButtons.forEach(function(button) {
+
+    button.addEventListener("pointerdown", function(event) {
+
+        event.preventDefault();
+
+        runAway(button);
+
+    });
+
+});
+
+
+function runAway(button) {
+
+    const currentSide =
+        button.dataset.side || "center";
+
+    let newSide;
+
+    if (currentSide === "center") {
+        newSide = "right";
+    } 
+    else if (currentSide === "right") {
+        newSide = "left";
+    } 
+    else {
+        newSide = "right";
+    }
+
+    button.dataset.side = newSide;
+
+
+    if (newSide === "right") {
+        button.style.left = "80%";
+    } 
+    else {
+        button.style.left = "20%";
+    }
+
+
+    const teasingMessages = [
+        "Nice try 😭",
+        "HAHA no chance 💀",
+        "You really thought 😭",
+        "Bro what are you doing 💀",
+        "Wrong answer, bestie 😭",
+        "Try againnn 🥹",
+        "Not this one 😂",
+        "Shimlamirch knows better 🌶️",
+        "Muffin is watching 👀",
+        "Caught you 😭"
+    ];
+
+    message.innerHTML =
+        teasingMessages[
+            Math.floor(
+                Math.random() * teasingMessages.length
+            )
+        ];
+}
+      function nextScreen() {
+
+    document.body.innerHTML = `
+
+        <div class="container">
+
+            <div class="heart">
+                🩵
+            </div>
+
+            <h1>
+                Our little moments
+            </h1>
+
+            <div class="subtitle">
+                So many kisses for you. 🥹
+            </div>
+
+            <div class="gallery">
+
+                <img src="photos/photo 1.jpeg">
+                <img src="photos/photo 2.jpeg">
+                <img src="photos/photo 3.jpeg">
+                <img src="photos/photo 4.jpeg">
+                <img src="photos/photo 5.jpeg">
+                <img src="photos/photo 6.jpeg">
+                <img src="photos/photo 7.jpeg">
+                <img src="photos/photo 8.jpeg">
+
+            </div>
+
+            <h2>
+                And then there's this idiot... 💀
+            </h2>
+
+            <video controls>
+                <source src="photos/video 1.mp4" type="video/mp4">
+            </video>
+
+            <p>
+                I love you, Shimlamirch 🌶️🩵
+            </p>
+
+        </div>
+
+    `;
+    }
+});  
+</script>
+
+</body>
+
+</html>
